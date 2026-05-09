@@ -665,7 +665,67 @@ font-size:16px;
 padding:16px 22px;
 }
 
+
+@media (max-width: 900px) {
+
+    nav {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .hero {
+        padding: 100px 20px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+        line-height: 1.1;
+    }
+
+    .hero p {
+        font-size: 20px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .services-grid,
+    .image-grid,
+    .cards-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card,
+    .image-card {
+        width: 100%;
+    }
+
+    .floating-chat {
+        right: 20px;
+        bottom: 20px;
+        padding: 14px 20px;
+        font-size: 16px;
+    }
+
+    .logo img {
+        height: 90px;
+    }
 }
+
+
+}
+
 
 </style>
 </head>
