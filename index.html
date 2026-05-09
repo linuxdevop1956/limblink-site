@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LimbLink | Prosthetics Consulting</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#f7fbfc;
+color:#123047;
+overflow-x:hidden;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+cursor:pointer;
+}
+
+.container{
+width:90%;
+max-width:1320px;
+margin:auto;
+}
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:1000;
+background:rgba(255,255,255,.97);
+backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(0,91,130,.10);
+box-shadow:0 8px 30px rgba(0,91,130,.07);
+padding:8px 0;
+}
+
+.navbar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:36px;
+}
+
+.logo img{
+height:145px;
+width:auto;
+display:block;
+}
+
+nav ul{
+display:flex;
+align-items:center;
+gap:38px;
+list-style:none;
+}
+
+nav a{
+font-size:18px;
+font-weight:900;
+color:#0b4d73;
+transition:.25s;
+}
+
+nav a:hover{
+color:#16a6a6;
+}
+
+.nav-btn,
+.primary-btn{
+background:linear-gradient(135deg,#005b8f,#16a6a6);
+color:white;
+padding:18px 34px;
+border-radius:999px;
+font-size:17px;
+font-weight:900;
+display:inline-block;
+border:none;
+cursor:pointer;
+transition:.25s;
+box-shadow:0 12px 30px rgba(0,91,143,.22);
+}
+
+.nav-btn:hover,
+.primary-btn:hover{
+transform:translateY(-3px);
+}
+
+.secondary-btn{
+background:white;
+color:#005b8f;
+padding:18px 34px;
+border-radius:999px;
+font-size:17px;
+font-weight:900;
+border:1px solid #bfe8ea;
+display:inline-block;
+transition:.25s;
+}
+
+.secondary-btn:hover{
+transform:translateY(-3px);
+}
+
+.hero{
+min-height:100vh;
+padding-top:190px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+
+background:
+linear-gradient(
+rgba(247,251,252,.76),
+rgba(247,251,252,.88)
+),
+url("hero.jpg");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+}
+
+.hero-content{
+max-width:1050px;
+margin:auto;
+padding:65px 0;
+}
+
+.badge{
+display:inline-block;
+background:#e4f7f7;
+color:#007c8c;
+padding:12px 22px;
+border-radius:999px;
+font-size:18px;
+font-weight:900;
+margin-bottom:24px;
+border:1px solid rgba(22,166,166,.22);
+}
+
+.hero-small,
+.section-small{
+color:#007c8c;
+font-size:18px;
+font-weight:900;
+letter-spacing:1.2px;
+margin-bottom:22px;
+text-transform:uppercase;
+}
+
+h1{
+font-size:76px;
+line-height:1;
+margin-bottom:34px;
+font-weight:900;
+color:#08324d;
+letter-spacing:-2px;
+}
+
+.hero p{
+font-size:26px;
+color:#35586b;
+line-height:1.75;
+margin-bottom:44px;
+max-width:930px;
+margin-left:auto;
+margin-right:auto;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+section{
+padding:120px 0;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:74px;
+}
+
+.section-title h2{
+font-size:56px;
+line-height:1.12;
+margin-bottom:24px;
+color:#08324d;
+letter-spacing:-1px;
+}
+
+.section-title p{
+font-size:23px;
+color:#526f7d;
+max-width:920px;
+margin:auto;
+line-height:1.85;
+}
+
+.image-strip{
+background:linear-gradient(135deg,#e8f8f8,#f7fbfc);
+}
+
+.photo-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+gap:32px;
+}
+
+.photo-card{
+background:white;
+border-radius:30px;
+overflow:hidden;
+box-shadow:0 18px 45px rgba(0,91,143,.12);
+transition:.3s;
+display:flex;
+flex-direction:column;
+}
+
+.photo-card:hover{
+transform:translateY(-8px);
+}
+
+.photo-card img{
+width:100%;
+height:320px;
+object-fit:cover;
+display:block;
+}
+
+.photo-content{
+padding:28px;
+}
+
+.photo-content h3{
+font-size:28px;
+margin-bottom:14px;
+color:#08324d;
+}
+
+.photo-content p{
+font-size:19px;
+line-height:1.8;
+color:#526f7d;
+}
+
+.card-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.card{
+background:white;
+border-radius:30px;
+padding:48px 32px;
+text-align:center;
+box-shadow:0 12px 35px rgba(0,91,143,.08);
+border:1px solid rgba(22,166,166,.10);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.icon{
+width:96px;
+height:96px;
+margin:auto auto 26px;
+border-radius:50%;
+background:#e8f8f8;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:44px;
+}
+
+.card h3{
+font-size:32px;
+margin-bottom:18px;
+color:#08324d;
+}
+
+.card p{
+color:#526f7d;
+font-size:20px;
+line-height:1.85;
+}
+
+.about-section{
+background:#eef9fa;
+}
+
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:76px;
+align-items:center;
+}
+
+.about-image{
+background:white;
+padding:16px;
+border-radius:34px;
+box-shadow:0 18px 45px rgba(0,91,143,.12);
+}
+
+.about-image img{
+width:100%;
+height:520px;
+object-fit:cover;
+border-radius:24px;
+display:block;
+}
+
+.about-content h2{
+font-size:56px;
+line-height:1.12;
+margin-bottom:26px;
+color:#08324d;
+}
+
+.about-content p{
+font-size:23px;
+line-height:1.9;
+color:#526f7d;
+margin-bottom:30px;
+}
+
+.feature-band{
+background:white;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+background:linear-gradient(135deg,#07324d,#005b8f);
+color:white;
+border-radius:36px;
+overflow:hidden;
+box-shadow:0 20px 60px rgba(0,91,143,.18);
+}
+
+.feature-text{
+padding:66px;
+}
+
+.feature-text .section-small{
+color:#8ff0e8;
+}
+
+.feature-text h2{
+font-size:52px;
+line-height:1.12;
+margin-bottom:26px;
+}
+
+.feature-text p{
+color:#d8f5f5;
+font-size:23px;
+line-height:1.9;
+margin-bottom:32px;
+}
+
+.feature-image{
+padding:18px;
+}
+
+.feature-image img{
+width:100%;
+height:540px;
+object-fit:cover;
+border-radius:24px;
+display:block;
+}
+
+.contact-box{
+background:white;
+border-radius:34px;
+padding:60px;
+max-width:940px;
+margin:auto;
+text-align:center;
+box-shadow:0 16px 45px rgba(0,91,143,.12);
+}
+
+.contact-box h2{
+font-size:54px;
+margin-bottom:22px;
+color:#08324d;
+}
+
+.contact-box p{
+font-size:23px;
+line-height:1.85;
+color:#526f7d;
+margin-bottom:34px;
+}
+
+footer{
+background:linear-gradient(135deg,#07324d,#005b8f);
+color:white;
+padding:85px 0;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1fr;
+gap:44px;
+}
+
+.footer-logo img{
+height:145px;
+background:white;
+border-radius:14px;
+margin-bottom:20px;
+}
+
+.footer-badge{
+display:inline-block;
+background:rgba(255,255,255,.14);
+padding:10px 16px;
+border-radius:999px;
+font-size:17px;
+font-weight:900;
+margin-bottom:18px;
+}
+
+.footer-column h4{
+font-size:24px;
+margin-bottom:24px;
+}
+
+.footer-column ul{
+list-style:none;
+}
+
+.footer-column li{
+margin-bottom:16px;
+color:#d8f5f5;
+line-height:1.6;
+font-size:18px;
+}
+
+.footer-column p{
+color:#d8f5f5;
+line-height:1.8;
+font-size:19px;
+}
+
+.chat-bubble{
+position:fixed;
+right:30px;
+bottom:30px;
+background:linear-gradient(135deg,#005b8f,#16a6a6);
+color:white;
+padding:20px 32px;
+border-radius:999px;
+display:flex;
+align-items:center;
+gap:12px;
+cursor:pointer;
+box-shadow:0 12px 40px rgba(0,91,143,.38);
+z-index:9999;
+font-size:21px;
+font-weight:900;
+animation:floatBubble 4s ease-in-out infinite;
+}
+
+@keyframes floatBubble{
+0%{transform:translate(0,0)}
+20%{transform:translate(-5px,-7px)}
+40%{transform:translate(4px,-12px)}
+60%{transform:translate(7px,-5px)}
+80%{transform:translate(-3px,4px)}
+100%{transform:translate(0,0)}
+}
+
+.chat-popup{
+position:fixed;
+right:30px;
+bottom:125px;
+width:410px;
+background:white;
+border-radius:28px;
+overflow:hidden;
+box-shadow:0 20px 65px rgba(0,0,0,.22);
+display:none;
+z-index:9999;
+}
+
+.chat-header{
+background:linear-gradient(135deg,#005b8f,#16a6a6);
+color:white;
+padding:24px;
+font-size:24px;
+font-weight:900;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.chat-close{
+cursor:pointer;
+font-size:30px;
+}
+
+.chat-body{
+padding:28px;
+}
+
+.chat-body p{
+margin-bottom:20px;
+color:#526f7d;
+line-height:1.65;
+font-size:18px;
+}
+
+.chat-body input,
+.chat-body select,
+.chat-body textarea{
+width:100%;
+padding:16px;
+border-radius:14px;
+border:1px solid #ccebed;
+margin-bottom:16px;
+font-size:17px;
+outline:none;
+}
+
+.chat-body textarea{
+height:120px;
+resize:none;
+}
+
+.chat-send{
+width:100%;
+border:none;
+background:linear-gradient(135deg,#005b8f,#16a6a6);
+color:white;
+padding:17px;
+border-radius:14px;
+font-size:19px;
+font-weight:900;
+cursor:pointer;
+}
+
+.chat-note{
+margin-top:14px;
+font-size:14px;
+color:#64748b;
+line-height:1.55;
+}
+
+@media(max-width:1000px){
+
+.about-grid,
+.feature-grid,
+.footer-grid{
+grid-template-columns:1fr;
+}
+
+h1{
+font-size:62px;
+}
+
+.section-title h2,
+.about-content h2,
+.contact-box h2,
+.feature-text h2{
+font-size:44px;
+}
+
+.logo img{
+height:110px;
+}
+
+nav ul{
+gap:20px;
+}
+
+nav a{
+font-size:16px;
+}
+
+.feature-image img{
+height:370px;
+}
+
+}
+
+@media(max-width:768px){
+
+nav ul{
+display:none;
+}
+
+.logo img{
+height:95px;
+}
+
+.nav-btn{
+font-size:15px;
+padding:13px 20px;
+}
+
+.hero{
+padding-top:155px;
+}
+
+h1{
+font-size:50px;
+letter-spacing:-1px;
+}
+
+.hero p{
+font-size:20px;
+}
+
+.badge{
+font-size:15px;
+}
+
+.hero-small,
+.section-small{
+font-size:15px;
+}
+
+.photo-card img{
+height:260px;
+}
+
+.chat-popup{
+width:90%;
+right:5%;
+bottom:115px;
+}
+
+.chat-bubble{
+right:20px;
+bottom:22px;
+font-size:16px;
+padding:16px 22px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container navbar">
+
+<a href="#home" class="logo">
+<img src="logo.png" alt="LimbLink Logo">
+</a>
+
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#who">Who We Help</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#providers">Providers</a></li>
+<li><a onclick="openChat()">Contact</a></li>
+</ul>
+</nav>
+
+<button class="nav-btn" onclick="openChat()">Get Started</button>
+
+</div>
+</header>
+
+<section class="hero" id="home">
+
+<div class="container hero-content">
+
+<div class="badge">
+Disabled Veteran-Owned
+</div>
+
+<div class="hero-small">
+Connecting people. Empowering movement.
+</div>
+
+<h1>
+Ready To Take<br>
+The Next Step?
+</h1>
+
+<p>
+LimbLink helps amputees, families, veterans, injured service members, and caregivers connect with trusted prosthetic care, mobility resources, and referral support.
+</p>
+
+<div class="hero-buttons">
+<button class="primary-btn" onclick="openChat()">Speak With Our Team</button>
+<a href="#who" class="secondary-btn">Learn More</a>
+</div>
+
+</div>
+
+</section>
+
+<section id="who" class="image-strip">
+
+<div class="container">
+
+<div class="section-title">
+
+<div class="section-small">
+Who We Help
+</div>
+
+<h2>
+Mobility Support For Every Stage Of Life.
+</h2>
+
+<p>
+From children and families to veterans, diabetic patients, and active adults, LimbLink helps people move forward with confidence and dignity.
+</p>
+
+</div>
+
+<div class="photo-grid">
+
+<div class="photo-card">
+<img src="family.jpg" alt="Family support">
+<div class="photo-content">
+<h3>Family Support</h3>
+<p>
+Families navigating life-changing mobility needs with trusted guidance and compassionate support.
+</p>
+</div>
+</div>
+
+<div class="photo-card">
+<img src="rehab.jpg" alt="Rehabilitation support">
+<div class="photo-content">
+<h3>Rehabilitation</h3>
+<p>
+Patients preparing for prosthetic care, rehabilitation, and renewed independence.
+</p>
+</div>
+</div>
+
+<div class="photo-card">
+<img src="run.jpg" alt="Athletic prosthetic support">
+<div class="photo-content">
+<h3>Active Living</h3>
+<p>
+Helping active individuals regain confidence, mobility, and independence.
+</p>
+</div>
+</div>
+
+<div class="photo-card">
+<img src="veteran.jpg" alt="Veteran support">
+<div class="photo-content">
+<h3>Veteran Care</h3>
+<p>
+Supporting wounded veterans and injured service members with mobility-focused resources.
+</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="services">
+
+<div class="container">
+
+<div class="section-title">
+
+<div class="section-small">
+Why LimbLink
+</div>
+
+<h2>
+Compassionate Support.<br>
+Trusted Connections.
+</h2>
+
+<p>
+We take a people-first approach to helping individuals and families find trusted prosthetic resources, support, and guidance.
+</p>
+
+</div>
+
+<div class="card-grid">
+
+<div class="card">
+<div class="icon">🦿</div>
+<h3>Prosthetic Referrals</h3>
+<p>
+Helping connect individuals seeking prosthetic care with trusted provider partners.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🇺🇸</div>
+<h3>Veteran Support</h3>
+<p>
+Built with a mission-focused mindset and an understanding of military culture and service.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🧭</div>
+<h3>Care Navigation</h3>
+<p>
+Helping patients and families better understand the process and next steps.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🤝</div>
+<h3>Provider Partnerships</h3>
+<p>
+Supporting ethical referral relationships focused on patient-centered care.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="feature-band">
+
+<div class="container">
+
+<div class="feature-grid">
+
+<div class="feature-text">
+
+<div class="section-small">
+Veteran-Focused Support
+</div>
+
+<h2>
+Mission-Driven Guidance For Those Who Served.
+</h2>
+
+<p>
+LimbLink helps veterans and injured service members connect with trusted prosthetic care, mobility resources, and support systems designed to help them move forward with confidence.
+</p>
+
+<button class="primary-btn" onclick="openChat()">
+Connect With Us
+</button>
+
+</div>
+
+<div class="feature-image">
+<img src="hero.jpg" alt="Veteran mobility support">
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="about-section">
+
+<div class="container about-grid">
+
+<div class="about-image">
+<img src="rehab.jpg" alt="Care consultation">
+</div>
+
+<div class="about-content">
+
+<div class="section-small">
+About LimbLink
+</div>
+
+<h2>
+More Than Prosthetics.<br>
+We Help People Move Forward.
+</h2>
+
+<p>
+LimbLink was founded on the belief that mobility changes lives. Our mission is to simplify the connection between patients and trusted prosthetic care through compassionate support, education, and referral coordination.
+</p>
+
+<p>
+As a disabled veteran-owned company, we believe every individual deserves dignity, support, and the opportunity to reclaim independence and confidence.
+</p>
+
+<button class="primary-btn" onclick="openChat()">
+Start A Conversation
+</button>
+
+</div>
+
+</div>
+</section>
+
+<section id="providers">
+
+<div class="container">
+
+<div class="section-title">
+
+<div class="section-small">
+For Providers
+</div>
+
+<h2>
+Ethical Referral Support For Mobility Providers.
+</h2>
+
+<p>
+LimbLink supports educational outreach, patient communication, and ethical referral coordination for prosthetic and mobility-focused organizations.
+</p>
+
+</div>
+
+<div class="card-grid">
+
+<div class="card">
+<div class="icon">📈</div>
+<h3>Qualified Leads</h3>
+<p>
+Helping providers connect with individuals actively seeking prosthetic support.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🌐</div>
+<h3>Digital Visibility</h3>
+<p>
+Helping providers strengthen their online presence and community reach.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">📝</div>
+<h3>Patient Communication</h3>
+<p>
+Helping make referral and intake processes easier and more approachable.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">💬</div>
+<h3>Supportive Engagement</h3>
+<p>
+Encouraging respectful communication that helps patients feel informed and confident.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="about-section" id="contact">
+
+<div class="container">
+
+<div class="contact-box">
+
+<div class="section-small">
+Contact LimbLink
+</div>
+
+<h2>
+Let’s Talk About The Next Step.
+</h2>
+
+<p>
+Reach out today to learn more about prosthetic referrals, mobility resources, and support options.
+</p>
+
+<button class="primary-btn" onclick="openChat()">
+Send A Message
+</button>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+
+<div class="container footer-grid">
+
+<div class="footer-column footer-logo">
+
+<div class="footer-badge">
+Disabled Veteran-Owned
+</div>
+
+<br>
+
+<img src="logo.png" alt="LimbLink Logo">
+
+<p>
+Connecting people.<br>
+Empowering movement.
+</p>
+
+</div>
+
+<div class="footer-column">
+
+<h4>Quick Links</h4>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#who">Who We Help</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#providers">Providers</a></li>
+</ul>
+
+</div>
+
+<div class="footer-column">
+
+<h4>Services</h4>
+
+<ul>
+<li>Prosthetic Referrals</li>
+<li>Care Navigation</li>
+<li>Veteran Support</li>
+<li>Provider Partnerships</li>
+</ul>
+
+</div>
+
+<div class="footer-column">
+
+<h4>Contact</h4>
+
+<ul>
+<li>
+<a href="mailto:founder@limblink.org">
+founder@limblink.org
+</a>
+</li>
+
+<li>
+<a onclick="openChat()">
+Send A Message
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</footer>
+
+<div class="chat-bubble" onclick="toggleChat()">
+💬 Chat With Us
+</div>
+
+<div class="chat-popup" id="chatPopup">
+
+<div class="chat-header">
+<span>LimbLink Support</span>
+<span class="chat-close" onclick="toggleChat()">×</span>
+</div>
+
+<div class="chat-body">
+
+<p>
+Tell us how we can help and we will follow up with you.
+</p>
+
+<input id="chatName" type="text" placeholder="Your Name">
+
+<input id="chatEmail" type="email" placeholder="Your Email">
+
+<select id="chatNeed">
+<option>What do you need help with?</option>
+<option>Below-knee prosthetic referral</option>
+<option>Above-knee prosthetic referral</option>
+<option>Repair or component replacement</option>
+<option>Veteran mobility resources</option>
+<option>Provider partnership</option>
+<option>Other</option>
+</select>
+
+<textarea id="chatMessage" placeholder="Type your message..."></textarea>
+
+<button class="chat-send" onclick="sendMessage()">
+Send Message
+</button>
+
+<div class="chat-note">
+LimbLink provides educational support and referral coordination only and does not provide medical advice, diagnosis, or treatment.
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function toggleChat(){
+const popup=document.getElementById('chatPopup');
+popup.style.display=popup.style.display==='block'?'none':'block';
+}
+
+function openChat(){
+document.getElementById('chatPopup').style.display='block';
+}
+
+function sendMessage(){
+
+const name=document.getElementById('chatName').value;
+const email=document.getElementById('chatEmail').value;
+const need=document.getElementById('chatNeed').value;
+const message=document.getElementById('chatMessage').value;
+
+const subject=encodeURIComponent('New LimbLink Website Inquiry');
+
+const body=encodeURIComponent(
+'Name: '+name+'\n'+
+'Email: '+email+'\n'+
+'Need: '+need+'\n\n'+
+'Message:\n'+message
+);
+
+window.location.href=
+'mailto:founder@limblink.org?subject='
++subject+
+'&body='
++body;
+
+}
+
+</script>
+
+</body>
+</html>
