@@ -669,34 +669,48 @@ padding:16px 22px;
 @media (max-width: 900px) {
 
     nav {
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 20px;
     }
 
     .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 16px;
+        display: none;
+    }
+
+    .logo img {
+        height: 72px;
     }
 
     .hero {
-        padding: 100px 20px;
+        padding: 90px 22px 120px;
         text-align: center;
     }
 
     .hero h1 {
-        font-size: 52px;
-        line-height: 1.1;
+        font-size: 64px;
+        line-height: 1.05;
+        letter-spacing: -2px;
     }
 
     .hero p {
-        font-size: 20px;
+        font-size: 22px;
+        line-height: 1.7;
+        margin-top: 24px;
     }
 
     .hero-buttons {
-        justify-content: center;
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        margin-top: 36px;
+    }
+
+    .hero-buttons a {
+        width: 100%;
+        max-width: 320px;
+        text-align: center;
     }
 
     .services-grid,
@@ -706,21 +720,25 @@ padding:16px 22px;
         grid-template-columns: 1fr;
     }
 
-    .service-card,
-    .image-card {
-        width: 100%;
+    .image-card img {
+        height: 280px;
+        object-fit: cover;
     }
 
     .floating-chat {
-        right: 20px;
-        bottom: 20px;
-        padding: 14px 20px;
-        font-size: 16px;
+        right: 16px;
+        bottom: 16px;
+        padding: 14px 18px;
+        font-size: 15px;
+        border-radius: 999px;
     }
 
-    .logo img {
-        height: 90px;
+    section {
+        padding-left: 20px;
+        padding-right: 20px;
     }
+}
+
 }
 
 
